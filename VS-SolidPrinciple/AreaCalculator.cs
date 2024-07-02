@@ -3,33 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using VS_SolidPrinciple.Models;
 
 namespace VS_SolidPrinciple
 {
-    public class AreaCalculator
+    public class AreaCalculator : IAreaCalculator
     {
-        public double Sum(List<Object> shapes)
+        public double Sum(List<IShape> shapes)
         {
             double sum = 0;
 
             for (int i = 0; i < shapes.Count; i++)
             {
-                Object shape = shapes[i];
 
-                if (shape is Square)
-                {
-                    sum += Math.Pow(((Square)shape).GetLength(), 2);
-                }
-
-                if (shape is Circle)
-                {
-                    sum += Math.PI * Math.Pow(((Circle)shape).GetRadius(), 2);
-
-                }
+                sum += shapes[i].area();
             }
 
             return sum;
         }
+
+        int nummm = 0;
+
 
     }
 }

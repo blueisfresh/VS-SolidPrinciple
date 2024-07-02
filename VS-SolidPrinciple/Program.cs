@@ -5,16 +5,24 @@
         static void Main(string[] args)
         {
             AreaCalculator areaCalculator = new AreaCalculator();
+
+            AreaCalculator areaCalculatorV2 = new AreaCalculator();
+
             Circle circle = new Circle(radius: 10);
             Square square = new Square(length: 10);
 
-            List<object> shapes = new List<object>();
+            ShapesPrinter printer = new ShapesPrinter(areaCalculatorV2);
+            Shape noShape = new NoShape();
+
+            List<IShape> shapes = [];
 
             shapes.Add(circle);
             shapes.Add(square);
 
             double sum = areaCalculator.Sum(shapes);
-            Console.WriteLine($"sum = {sum}");
+
+            Console.WriteLine(printer.Json(shapes));
+            Console.WriteLine(printer.Csv(shapes));
 
         }
     }

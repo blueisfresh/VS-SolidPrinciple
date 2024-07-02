@@ -6,13 +6,18 @@ using System.Threading.Tasks;
 
 namespace VS_SolidPrinciple
 {
-    public class Square
+    public class Square: IShape
     {
         private int length;
 
         public Square(int length)
         {
             this.length = length;
+        }
+
+        public double area()
+        {
+            return Math.Pow(GetLength(), 2);
         }
 
         public int GetLength()

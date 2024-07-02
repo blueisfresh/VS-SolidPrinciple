@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace VS_SolidPrinciple
 {
-    public class Circle
+    public class Circle: IShape
     {
 
         private int radius;
@@ -16,11 +16,15 @@ namespace VS_SolidPrinciple
             this.radius = radius;
         }
 
+        public double area()
+        {
+            return Math.PI * Math.Pow(GetRadius(), 2);
+        }
+
         public int GetRadius()
         {
             return radius;
         }
-
 
     }
 }
